@@ -1,0 +1,15 @@
+!xterm.eightBitInput:    true
+!xterm.eightBitOutput:   true
+xterm*Background: darkblue
+xterm*Foreground: white
+!xterm*font: -cronyx-fixed-*-*-*-*-20-*-*-*-*-*-*  
+xterm*font: -*-*-*-*-*-*-20-*-*-*-*-iso10646-1
+xterm*saveLines: 16384
+xterm*sameName: false
+xterm*visualBell: true
+!xterm*deleteIsDEL: true
+
+!*VT100.translations: #override \n\
+!      Meta    <Key>Super_L:      insert-selection(PRIMARY, CLIPBOARD, CUT_BUFFER0) \n
+!      None    <Key>F8:      select-cursor-start() \n\
+!      None    <Key>F9:      select-cursor-end(PRIMARY, CLIPBOARD, CUT_BUFFER0) \n

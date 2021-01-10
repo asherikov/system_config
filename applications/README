@@ -1,0 +1,6 @@
+This example demonstrates how to use MIME database and a desktop entry to
+execute media player with custom command line parameters. This may be useful
+for starting video playback directly from a pdf presentation in a preferable
+mode (fullscreen, etc).
+
+The files should be copied to ~/.local/share/applications/

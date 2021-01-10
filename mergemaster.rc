@@ -1,0 +1,5 @@
+STRICT=no
+FREEBSD_ID=yes
+AUTO_INSTALL=yes
+AUTO_UPGRADE=yes
+IGNORE_FILES='/root/.cshrc /etc/csh.cshrc /etc/mail/aliases /etc/mail/freebsd.cf /etc/mail/freebsd.mc /etc/mail/freebsd.submit.cf /etc/mail/freebsd.submit.mc /etc/mail/helpfile /etc/mail/sendmail.cf /etc/mail/submit.cf /etc/ppp/ppp.conf /etc/sysctl.conf /.cshrc'
