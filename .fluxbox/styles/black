@@ -1,0 +1,62 @@
+*button: flat solid
+*button.pressed: sunken solid
+*button.pressed.color: grey40
+*focused: sunken solid
+*focused.color: grey40
+*textColor: white
+
+*color: black
+*color1: black
+*color2: black
+
+*font: Cronyx-16:style=fixed
+
+*borderColor: grey40
+*borderWidth: 1
+*marginWidth: 2
+
+menu.title: flat solid border
+menu.title.color: black
+menu.title.alignment: center
+menu.title.font: Cronyx-16:style=fixed
+
+menu.frame: raised border
+menu.frame.disabledColor: grey40
+menu.frame.alignment: left
+
+menu.active: flat solid border
+menu.active.color: black
+menu.active.textColor: white
+
+slit: raised solid
+slit.color: white
+slit.marginWidth: 3
+
+toolbar: raised border
+toolbar.alignment: center
+toolbar.label: flat solid
+toolbar.clock: flat solid
+toolbar.windowLabel: flat solid
+
+window.title.focus: raised border
+
+window.label.focus: flat solid
+window.label.focus.textColor: red
+window.label.unfocus: flat gradient
+window.label.colorTo: white
+window.label.unfocus.textColor: cyan
+window.label.marginWidth: 1
+
+window.button.focus: flat solid
+window.button.unfocus: sunken solid
+
+window.handle.focus: raised solid border
+window.handle.unfocus: raised solid border
+
+window.grip.focus: raised solid border
+window.grip.focus.color: black
+window.grip.unfocus: raised solid border
+
+window*alignment: center
+window.font: Cronyx-16:style=fixed
+window.handleHeight: 4

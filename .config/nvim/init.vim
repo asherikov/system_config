@@ -1,5 +1,6 @@
-    set nocompatible
-    set viminfo="NONE"
+  set nocompatible
+  set viminfo="NONE"
+  set nostartofline
 
 "
 "
@@ -161,3 +162,68 @@
 
 " now _F will display which function you are currently in.
   map _F ma[[k"xyy`a:echo @x<CR>
+
+
+
+com! -range CFMY :<line1>,<line2>!clang-format11 --style="{
+            \    'BasedOnStyle': 'Google',
+            \    'AccessModifierOffset': -4,
+            \    'ConstructorInitializerIndentWidth': 2,
+            \    'AlignAfterOpenBracket': 'AlwaysBreak',
+            \    'AlignEscapedNewlinesLeft': false,
+            \    'AlignTrailingComments': true,
+            \    'AllowAllParametersOfDeclarationOnNextLine': false,
+            \    'AllowShortIfStatementsOnASingleLine': false,
+            \    'AllowShortLoopsOnASingleLine': false,
+            \    'AllowShortFunctionsOnASingleLine': 'None',
+            \    'AllowShortLoopsOnASingleLine': false,
+            \    'AlwaysBreakTemplateDeclarations': true,
+            \    'AlwaysBreakBeforeMultilineStrings': false,
+            \    'BreakBeforeBinaryOperators': 'NonAssignment',
+            \    'BreakBeforeTernaryOperators': false,
+            \    'BreakConstructorInitializersBeforeComma': true,
+            \    'BreakStringLiterals': false,
+            \    'BinPackParameters': false,
+            \    'BinPackArguments': false,
+            \    'ColumnLimit':    120,
+            \    'ConstructorInitializerAllOnOneLineOrOnePerLine': true,
+            \    'DerivePointerBinding': true,
+            \    'ExperimentalAutoDetectBinPacking': false,
+            \    'IndentCaseLabels': true,
+            \    'MaxEmptyLinesToKeep': 3,
+            \    'NamespaceIndentation': 'All',
+            \    'ObjCSpaceBeforeProtocolList': true,
+            \    'PenaltyBreakBeforeFirstCallParameter': 19,
+            \    'PenaltyBreakComment': 60,
+            \    'PenaltyBreakString': 1,
+            \    'PenaltyBreakFirstLessLess': 1000,
+            \    'PenaltyExcessCharacter': 500,
+            \    'PenaltyReturnTypeOnItsOwnLine': 1000,
+            \    'PointerBindsToType': false,
+            \    'SpacesBeforeTrailingComments': 2,
+            \    'Cpp11BracedListStyle': false,
+            \    'Standard':        'Auto',
+            \    'IndentWidth':     4,
+            \    'TabWidth':        4,
+            \    'UseTab':          'Never',
+            \    'BreakBeforeBraces': 'Allman',
+            \    'IndentFunctionDeclarationAfterType': false,
+            \    'SpacesInParentheses': false,
+            \    'SpacesInAngles':  false,
+            \    'SpaceInEmptyParentheses': false,
+            \    'SpacesInCStyleCastParentheses': false,
+            \    'SpaceAfterControlStatementKeyword': true,
+            \    'SpaceBeforeAssignmentOperators': true,
+            \    'ContinuationIndentWidth': 8,
+            \    'SortIncludes': false,
+            \    'IndentPPDirectives': 'AfterHash',
+            \    'DerivePointerAlignment': false,
+            \    'PointerAlignment': 'Right',
+            \    'FixNamespaceComments': true,
+            \    'IndentWrappedFunctionNames': true,
+            \    'Standard': 'Cpp03',
+            \}"<CR>
+
+
+map <F3> :norm!mw<CR>:%CFMY<CR>:norm!`w<CR>:delmarks w<CR><CR>
+vmap <F3> :CFMY<CR>
