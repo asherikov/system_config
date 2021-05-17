@@ -1,0 +1,19 @@
+#addpath ('~/git/mex');
+format long;
+more off;
+crash_dumps_octave_core(0);
+graphics_toolkit ("fltk");
+set (0, "defaultlinelinewidth", 1);
+set (0, "defaultaxeslinewidth", 1);
+#set (0, "defaultaxesfontsize", 14)
+#set (0, "defaulttextfontsize", 14)
+#set(0, "defaultaxesbox", "off")
+#setenv ('CXX', 'g++48')
+##setenv ('LD_CXX', 'g++48')
+##setenv ('CXX_LD', 'g++48')
+#setenv ('DL_LD', 'g++48')
+#setenv ('CC', 'gcc48')
+#warning ('on', 'Octave:matlab-incompatible');
+
+#pkg load signal
+#pkg load odepkg

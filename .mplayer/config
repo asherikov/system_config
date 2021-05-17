@@ -1,0 +1,4 @@
+# Write your default config options here!
+fontconfig=0
+subcp=cp1251
+afm=libmad
