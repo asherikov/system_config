@@ -1,0 +1,2 @@
+systemctl disable network-online.target
+systemctl mask network-online.target
