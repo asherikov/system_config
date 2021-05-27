@@ -1,0 +1,80 @@
+[global]
+fullscreen = 800 x 600
+ratio = 4:3
+freqtab = russia
+pixsize = 0 x 0
+pixcols = 1
+jpeg-quality = 75
+keypad-ntsc = no
+keypad-partial = yes
+osd = no
+osd-position = 30 , 20
+use-wm-fullscreen = yes
+
+# [Station name]
+# capture = overlay | grabdisplay | on | off
+# input = Television | Composite1 | S-Video | ...
+# norm = PAL | NTSC | SECAM | ... 
+# channel = #
+# fine = # (-128..+127)
+# key = keysym | modifier+keysym
+# color = #
+# bright = #
+# hue = #
+# contrast = #
+
+[defaults]
+group = main
+norm = SECAM
+input = Television
+capture = over
+color = 25%
+contrast = 32%
+
+[орт]
+channel = R2
+key = 1
+
+[ртр]
+channel = R4
+key = 2
+
+[тнт]
+channel = R7
+key = 3
+
+[нтв]
+channel = R10
+key = 4
+
+[спорт]
+channel = R12
+key = 5
+
+[ника+]
+channel = 27
+key = 6
+
+[культура]
+channel = 29
+key = 7
+
+[7тв]
+channel = 40
+key = 8
+
+[дтв]
+channel = 44
+key = 9
+
+[test]
+channel = 44
+
+[tvc]
+channel = 24
+key = 0
+
+[5k]
+channel = 32
+key = minus
+
