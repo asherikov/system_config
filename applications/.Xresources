@@ -2,7 +2,7 @@
 !xterm.eightBitOutput:   true
 xterm*Background: darkblue
 xterm*Foreground: white
-!xterm*font: -cronyx-fixed-*-*-*-*-20-*-*-*-*-*-*  
+!xterm*font: -cronyx-fixed-*-*-*-*-20-*-*-*-*-*-*
 xterm*font: -*-*-*-*-*-*-20-*-*-*-*-iso10646-1
 xterm*saveLines: 16384
 xterm*sameName: false
@@ -13,3 +13,8 @@ xterm*visualBell: true
 !      Meta    <Key>Super_L:      insert-selection(PRIMARY, CLIPBOARD, CUT_BUFFER0) \n
 !      None    <Key>F8:      select-cursor-start() \n\
 !      None    <Key>F9:      select-cursor-end(PRIMARY, CLIPBOARD, CUT_BUFFER0) \n
+
+!workaround for halfpage scrolling glitch
+*VT100.translations: #override \n\
+      Shift <KeyPress> Prior : scroll-back(20) \n\
+      Shift <KeyPress> Next  : scroll-forw(20) \n
