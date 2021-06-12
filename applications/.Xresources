@@ -9,10 +9,8 @@ xterm*sameName: false
 xterm*visualBell: true
 !xterm*deleteIsDEL: true
 
-!*VT100.translations: #override \n\
-!      Meta    <Key>Super_L:      insert-selection(PRIMARY, CLIPBOARD, CUT_BUFFER0) \n
-!      None    <Key>F8:      select-cursor-start() \n\
-!      None    <Key>F9:      select-cursor-end(PRIMARY, CLIPBOARD, CUT_BUFFER0) \n
+xterm*termName: xterm-color
+xterm*charClass: ""
 
 !workaround for halfpage scrolling glitch
 *VT100.translations: #override \n\
