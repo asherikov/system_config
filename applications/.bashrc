@@ -66,6 +66,8 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias ls='ls -AF --color=auto'
 
 export LC_COLLATE=C.UTF-8
+export LC_TIME=POSIX
+export LC_MESSAGES=POSIX
 export EDITOR=nvim
 export XENVIRONMENT="${HOME}/.Xresources"
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
