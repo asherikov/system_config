@@ -1,5 +1,0 @@
-set show-all-if-ambiguous   on
-set bell-style              none
-set page-completions        off
-set completion-query-items  -1
-set match-hidden-files      on

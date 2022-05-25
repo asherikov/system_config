@@ -1,5 +1,0 @@
-#!/bin/bash
-
-# Load resources
-
-xrdb -merge .Xresources
