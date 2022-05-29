@@ -1,0 +1,33 @@
+#!/bin/bash
+
+
+# fix apt
+{
+    echo 'APT::Install-Recommends "false";';
+    echo 'APT::Install-Suggests "false";';
+} > /etc/apt/apt.conf.d/90disable_junk
+
+
+# get rid of Ubuntu junk
+dpkg --get-selections | grep cloud | cut -f 1 | xargs apt purge -y
+
+
+# save time on boot
+systemctl disable systemd-networkd-wait-online.service
+systemctl mask systemd-networkd-wait-online.service
+#systemctl disable network-online.target
+#systemctl mask network-online.target
+
+
+apt install -y xorg firefox fluxbox xterm neovim
+apt install -y linux-oem-20.04
+apt install -y v4l-utils pavucontrol
+
+apt install -y xdm
+# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=948346
+rm /etc/logrotate.d/xdm
+
+# time
+timedatectl set-timezone Europe/Oslo
+
+

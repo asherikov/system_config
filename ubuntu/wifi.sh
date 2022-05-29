@@ -17,4 +17,4 @@ echo "[Match]
 Name=${INTERFACE}
 
 [Network]
-DHCP=yes" > /etc/systemd/network/${INTERFACE}.network
+DHCP=yes" > /lib/systemd/network/${INTERFACE}.network
