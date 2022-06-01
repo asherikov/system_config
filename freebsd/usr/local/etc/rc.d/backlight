@@ -1,0 +1,15 @@
+#!/bin/sh
+#
+
+# PROVIDE: nvclock
+
+. /etc/rc.subr
+
+name="backlight"
+rcvar=`set_rcvar`
+command="/usr/bin/backlight"
+command_args="50"
+
+load_rc_config $name
+run_rc_command "$1"
+
