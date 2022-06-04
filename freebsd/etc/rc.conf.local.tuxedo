@@ -1,0 +1,8 @@
+# wifi
+wlans_iwlwifi0="wlan0"
+create_args_wlan0="country NO"
+ifconfig_wlan0="WPA SYNCDHCP"
+ifconfig_wlan0_ipv6="inet6 accept_rtadv"
+
+
+kld_list="${kld_list} amdgpu amdtemp"

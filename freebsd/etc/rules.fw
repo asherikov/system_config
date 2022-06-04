@@ -1,0 +1,22 @@
+ipfw -f flush
+#ipfw -q nat 1 config if wlan0
+
+ipfw add 00010 pass all from any to any via lo0
+
+ipfw add 00011 drop log ip4 from any to any in tcpdatalen 0 tcpflags syn,!fin,!rst,!psh,!ack,!urg tcpoptions mss,window,sack,ts tcpwin 1
+ipfw add 00012 drop log ip4 from any to any in tcpdatalen 0 tcpflags syn,!fin,!rst,!psh,!ack,!urg tcpoptions mss,window,sack,ts tcpwin 63
+ipfw add 00013 drop log ip4 from any to any in tcpdatalen 0 tcpflags syn,!fin,!rst,!psh,!ack,!urg tcpoptions mss,window,ts tcpwin 4
+ipfw add 00014 drop log ip4 from any to any in tcpdatalen 0 tcpflags syn,!fin,!rst,!psh,!ack,!urg tcpoptions window,sack,ts tcpwin 4
+ipfw add 00015 drop log ip4 from any to any in tcpdatalen 0 tcpflags syn,!fin,!rst,!psh,!ack,!urg tcpoptions mss,window,sack,ts tcpwin 16
+ipfw add 00016 drop log ip4 from any to any in tcpdatalen 0 tcpflags syn,!fin,!rst,!psh,!ack,!urg tcpoptions mss,sack,ts tcpwin 512
+
+#ipfw add 00099 reass all from any to any in
+#ipfw add 00100 nat 1 all from any to any via wlan0
+#ipfw add 00101 check-state
+
+# protect X server
+ipfw add 10000 pass ip from any to me 6000 via vboxnet0
+ipfw add 10001 deny ip from any to me 6000
+# allow everything else
+ipfw add 65000 pass all from any to any
+
