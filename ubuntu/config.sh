@@ -21,7 +21,7 @@ systemctl mask systemd-networkd-wait-online.service
 
 apt install -y xorg firefox fluxbox xterm neovim
 apt install -y linux-oem-20.04
-apt install -y v4l-utils pavucontrol
+apt install -y v4l-utils pavucontrol alsa-base pulseaudio
 
 apt install -y xdm
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=948346
