@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -e
+
+TIMEZONE=Asia/Dubai
 
 # fix apt
 {
@@ -20,14 +23,16 @@ systemctl mask systemd-networkd-wait-online.service
 
 
 apt install -y xorg firefox fluxbox xterm neovim
-apt install -y linux-oem-20.04
+#apt install -y linux-oem-20.04
 apt install -y v4l-utils pavucontrol alsa-base pulseaudio
 
 apt install -y xdm
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=948346
-rm /etc/logrotate.d/xdm
+rm -f /etc/logrotate.d/xdm
 
 # time
-timedatectl set-timezone Europe/Oslo
+timedatectl set-timezone "${TIMEZONE}"
 
-
+# locale
+locale-gen C.UTF-8
+echo LC_ALL="C.UTF-8" | tee /etc/default/locale
