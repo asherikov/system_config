@@ -10,6 +10,8 @@ TIMEZONE=Asia/Dubai
     echo 'APT::Install-Suggests "false";';
 } > /etc/apt/apt.conf.d/90disable_junk
 
+# alacritty
+add-apt-repository ppa:aslatter/ppa -y
 
 # get rid of Ubuntu junk
 dpkg --get-selections | grep cloud | cut -f 1 | xargs apt purge -y
@@ -22,7 +24,7 @@ systemctl mask systemd-networkd-wait-online.service
 #systemctl mask network-online.target
 
 
-apt install -y xorg firefox fluxbox xterm neovim
+apt install -y xorg firefox fluxbox xterm neovim alacritty tint2
 #apt install -y linux-oem-20.04
 apt install -y v4l-utils pavucontrol alsa-base pulseaudio
 
