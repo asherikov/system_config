@@ -12,9 +12,12 @@ TIMEZONE=Asia/Dubai
 
 # alacritty
 add-apt-repository ppa:aslatter/ppa -y
+add-apt-repository ppa:mozillateam/ppa -y
 
 # get rid of Ubuntu junk
 dpkg --get-selections | grep cloud | cut -f 1 | xargs apt purge -y
+dpkg --get-selections | grep unattended-upgrades | cut -f 1 | xargs apt purge -y
+dpkg --get-selections | grep snapd -upgrades | cut -f 1 | xargs apt purge -y
 
 
 # save time on boot
@@ -24,8 +27,7 @@ systemctl mask systemd-networkd-wait-online.service
 #systemctl mask network-online.target
 
 
-apt install -y xorg firefox fluxbox xterm neovim alacritty tint2
-#apt install -y linux-oem-20.04
+apt install -y xorg firefox-esr fluxbox xterm neovim alacritty tint2
 apt install -y v4l-utils pavucontrol alsa-base pulseaudio
 
 apt install -y xdm
