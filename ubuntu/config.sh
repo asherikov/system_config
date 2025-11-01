@@ -27,9 +27,10 @@ systemctl mask systemd-networkd-wait-online.service
 #systemctl mask network-online.target
 
 
-apt install -y xorg firefox-esr fluxbox xterm neovim alacritty tint2
+apt install -y xorg firefox-esr fluxbox xterm neovim alacritty tint2 libxkbcommon-x11-0
 apt install -y v4l-utils pavucontrol alsa-base pulseaudio
 
+# apparently it may be started too fast, a quick hack is to add a 'sleep 1' to 'ExecStartPre'
 apt install -y xdm
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=948346
 rm -f /etc/logrotate.d/xdm
