@@ -70,7 +70,8 @@ hdaa1: 27 411111f0 15 0  Speaker       None  1/8     Rear       Black   1
 hdaa1: 30 411111f0 15 0  Speaker       None  1/8     Rear       Black   1
 ```
 
-Add `hint.hdaa.1.nid21.config="as=1 seq=15"` to `/boot/device.hints`: `as=1` --
+[Numeric ids were changed in newer FreeBSD versions] Add
+`hint.hdaa.1.nid21.config="as=1 seq=15"` to `/boot/device.hints`: `as=1` --
 move headphones to the same association as the speaker, `seq=15` -- override
 speaker with headphones when connected, see `man snd_hda`.
 
@@ -144,11 +145,8 @@ upower -i /org/freedesktop/UPower/devices/battery_BAT0
 
 ### Shared filesystems
 
-- Mounting of UFS: `sudo mount -r -t ufs -o ufstype=ufs2 ...`
-
 - Force import of zfs pools in Lunux by changing `ZPOOL_IMPORT_OPTS` in
   `/etc/default/zfs`.
-
 
 
 Notes
