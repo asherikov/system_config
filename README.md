@@ -1,8 +1,27 @@
+Filesystems
+===========
+
+ZFS
+---
+
+- ZFS is the best option for a shared filesystem for BSD/Linux, e.g., there is
+  no reliable RW support for UFS in Linux.
+
+- ZFS versions may not be the same in different OS, so it is generally a good
+  idea to set compatibility option when creating a pool, e.g.,
+   `zpool create -m <mountpoint> -o compatibility=<openzfs_git_repo>/cmd/zpool/compatibility.d/openzfs-2.2 <pool> /dev/<partition>`
+
+- Pools may not be imported automatically if they were used by another OS, in
+  which case forced imports can be used, e.g., by changing `ZPOOL_IMPORT_OPTS`
+  in `/etc/default/zfs` in Ubuntu.
+
+
 FreeBSD
 =======
 
-- There are no reliable RW support for UFS in Linux, the best option for a
-  shared filesystem is ZFS.
+- UID assignment policies are slightly different: FreeBSD starts with 1001,
+  Linux -- 1000. This might lead to some minor issues if there are shared
+  filesystems.
 
 - amdgpu 890M dos not work:
     - <https://github.com/freebsd/drm-kmod/issues/372>
@@ -14,7 +33,22 @@ FreeBSD
 Linux
 =====
 
-- Mounting of UFS: `sudo mount -r -t ufs -o ufstype=ufs2 ...` (RO only).
+Generic
+-------
+
+### Filesystems
+
+- Mounting UFS: `sudo mount -r -t ufs -o ufstype=ufs2 ...` (RO only).
+
+
+
+Ubuntu
+------
+
+### Installation
+
+- Is not going to recognize EFI partition if its UUID not set properly, see
+  <https://wiki.archlinux.org/title/EFI_system_partition>.
 
 
 Alpine
@@ -28,27 +62,30 @@ Alpine
   `wpa_supplicant`, which needs to be installed (the packae is included in the
   image).
 
+### Cyrillic and fonts in console
 
-Chimera
--------
+1. Keyboard map in `/etc/conf.d/loadkmap`
+   `KEYMAP=/etc/keymap/us-altgr-intl.bmap.gz`
+2. Install `kbd` and `kbd-legacy`.
+3. Set keymap in `/etc/conf.d/loadkeys`
+   `keymap="legacy/i386/qwerty/ruwin_ct_sh-UTF-8"`.
+4. Set cyrillic font in `/etc/conf.d/consolefont`
+   `consolefont="UniCyrExt_8x16.psf.gz"`.
+5. Patch `/etc/init.d/consolefont` to increase font size: `setfont` -> `setfont
+   --double`.
+6. Enable `loadkeys` and `consolefont` services.
 
-- Interesting, but very few packages, pretty much developed by one guy.
 
-
-Nix
----
-
-- Requires internet connection during installation, but old WiFi hardware not
-  recognized for some reason.
-
-
-Ubuntu
+Others
 ------
 
-### Installation
+- Chimera: interesting, but very few packages, pretty much developed by one
+  guy.
 
-- Is not going to recognize EFI partition if its UUID not set properly, see
-  <https://wiki.archlinux.org/title/EFI_system_partition>.
+- Nix: requires internet connection during installation, but old WiFi hardware not
+  recognized for some reason.
+
+- Artix: ???
 
 
 Hardware

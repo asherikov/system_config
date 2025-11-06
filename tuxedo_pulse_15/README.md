@@ -143,21 +143,3 @@ sudo apt install upower
 upower -i /org/freedesktop/UPower/devices/battery_BAT0
 ```
 
-### Shared filesystems
-
-- Force import of zfs pools in Lunux by changing `ZPOOL_IMPORT_OPTS` in
-  `/etc/default/zfs`.
-
-
-Notes
-=====
-
-1. UID assignment policies are slightly different: FreeBSD starts with 1001,
-   Linux -- 1000. This might lead to some minor issues if there are shared
-   filesystems.
-
-2. FreeBSD development branch generally includes newer version of ZFS than
-   provided by Linux packages (`sudo apt install zfsutils-linux`), which may
-   prevent access to ZFS systems created in FreeBSD from Linux. Use
-   compatibility option to prevent this, e.g.
-   `zpool create -m <mountpoint> -o compatibility=/usr/share/zfs/compatibility.d/zol-0.8 <pool> /dev/<partition>`
