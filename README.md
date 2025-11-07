@@ -20,14 +20,8 @@ FreeBSD
 =======
 
 - UID assignment policies are slightly different: FreeBSD starts with 1001,
-  Linux -- 1000. This might lead to some minor issues if there are shared
+  Linux -- 1000. This might lead to some ownership issues if there are shared
   filesystems.
-
-- amdgpu 890M dos not work:
-    - <https://github.com/freebsd/drm-kmod/issues/372>
-    - <https://github.com/freebsd/drm-kmod-firmware/pull/38>
-    - <https://github.com/freebsd/drm-kmod/issues/343>
-    - <https://github.com/freebsd/drm-kmod/pull/332>
 
 
 Linux
